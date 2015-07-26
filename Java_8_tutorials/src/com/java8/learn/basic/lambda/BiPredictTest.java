@@ -1,14 +1,14 @@
 package com.java8.learn.basic.lambda;
 
 /**
- * Test {@link DoubleArguPredicate} and explore the things with it which we can
- * do in a better way with java 8.
+ * Test {@link BiPredicate} and explore the things with it which we can do in a
+ * better way with java 8.
  * 
  * @author Vishal.Zanzrukia
- * @see {@link DoubleArguPredicate}
+ * @see {@link BiPredicate}
  *
  */
-public class DoubleArguPredicateTest {
+public class BiPredictTest {
 
 	/**
 	 * Test double argument prediction example before java 8
@@ -26,29 +26,29 @@ public class DoubleArguPredicateTest {
 		 * Reference link : http://stackoverflow.com/a/1299889/1326692
 		 */
 
-		DoubleArguPredicate<Integer> isEqual = new DoubleArguPredicate<Integer>() {
+		BiPredicate<Integer, Integer> isEqual = new BiPredicate<Integer, Integer>() {
 
 			@Override
-			public boolean predict(Integer t, Integer v) {
+			public boolean test(Integer t, Integer v) {
 				return t.intValue() == v.intValue();
 			}
 		};
 
-		System.out.println("Is " + input1 + " and " + input2 + " are equal ? : " + isEqual.predict(input1, input2));
+		System.out.println("Is " + input1 + " and " + input2 + " are equal ? : " + isEqual.test(input1, input2));
 
-		DoubleArguPredicate<Integer> isInput1Greater = new DoubleArguPredicate<Integer>() {
+		BiPredicate<Integer, Integer> isInput1Greater = new BiPredicate<Integer, Integer>() {
 
 			@Override
-			public boolean predict(Integer t, Integer v) {
+			public boolean test(Integer t, Integer v) {
 				return t.intValue() > v.intValue();
 			}
 		};
 
 		System.out.println(
-				"Is " + input1 + " is greater than " + input2 + " ? : " + isInput1Greater.predict(input1, input2));
+				"Is " + input1 + " is greater than " + input2 + " ? : " + isInput1Greater.test(input1, input2));
 
 		System.out.println(
-				"Is " + input2 + " is greater than " + input1 + " ? : " + isInput1Greater.predict(input2, input1));
+				"Is " + input2 + " is greater than " + input1 + " ? : " + isInput1Greater.test(input2, input1));
 	}
 
 	/**
@@ -69,15 +69,15 @@ public class DoubleArguPredicateTest {
 		 * internally uses anonymous inner classes and it must be final.<BR>
 		 * Reference link : http://stackoverflow.com/a/1299889/1326692
 		 */
-		DoubleArguPredicate<Integer> isEqual = (x, y) -> x.intValue() == y.intValue();
-		System.out.println("Is " + input1 + " and " + input2 + " are equal ? : " + isEqual.predict(input1, input2));
+		java.util.function.BiPredicate<Integer, Integer> isEqual = (x, y) -> x.intValue() == y.intValue();
+		System.out.println("Is " + input1 + " and " + input2 + " are equal ? : " + isEqual.test(input1, input2));
 
-		DoubleArguPredicate<Integer> isInput1Greater = (x, y) -> x.intValue() > y.intValue();
+		java.util.function.BiPredicate<Integer, Integer> isInput1Greater = (x, y) -> x.intValue() > y.intValue();
 		System.out.println(
-				"Is " + input1 + " is greater than " + input2 + " ? : " + isInput1Greater.predict(input1, input2));
+				"Is " + input1 + " is greater than " + input2 + " ? : " + isInput1Greater.test(input1, input2));
 
 		System.out.println(
-				"Is " + input2 + " is greater than " + input1 + " ? : " + isInput1Greater.predict(input2, input1));
+				"Is " + input2 + " is greater than " + input1 + " ? : " + isInput1Greater.test(input2, input1));
 
 	}
 

@@ -22,22 +22,22 @@ public class BinaryOperatorTest {
 		BinaryOperator<Integer> addition = new BinaryOperator<Integer>() {
 
 			@Override
-			public Integer getResult(Integer t, Integer v) {
+			public Integer apply(Integer t, Integer v) {
 				return t + v;
 			}
 		};
 
-		System.out.println(input1 + " + " + input2 + " : " + addition.getResult(input1, input2));
+		System.out.println(input1 + " + " + input2 + " : " + addition.apply(input1, input2));
 
 		BinaryOperator<Long> subtraction = new BinaryOperator<Long>() {
 
 			@Override
-			public Long getResult(Long t, Long v) {
+			public Long apply(Long t, Long v) {
 				return t - v;
 			}
 		};
 
-		System.out.println(input1 + " - " + input2 + " : " + subtraction.getResult(new Long(input1), new Long(input2)));
+		System.out.println(input1 + " - " + input2 + " : " + subtraction.apply(new Long(input1), new Long(input2)));
 	}
 
 	/**
@@ -53,15 +53,16 @@ public class BinaryOperatorTest {
 		 * Note that we have declared Integer in below example in
 		 * lambda-expression, but it's not compulsory
 		 */
-		BinaryOperator<Integer> addition = (Integer x, Integer y) -> x + y;
-		System.out.println(input1 + " + " + input2 + " : " + addition.getResult(input1, input2));
+		
+		java.util.function.BinaryOperator<Integer> addition = (Integer x, Integer y) -> x + y;
+		System.out.println(input1 + " + " + input2 + " : " + addition.apply(input1, input2));
 
 		/**
 		 * Note that we have not declared Long in below example in
 		 * lambda-expression and it would work perfectly..!
 		 */
-		BinaryOperator<Long> subtraction = (x, y) -> x - y;
-		System.out.println(input1 + " - " + input2 + " : " + subtraction.getResult(new Long(input1), new Long(input2)));
+		java.util.function.BinaryOperator<Long> subtraction = (x, y) -> x - y;
+		System.out.println(input1 + " - " + input2 + " : " + subtraction.apply(new Long(input1), new Long(input2)));
 	}
 
 	public static void main(String[] args) {

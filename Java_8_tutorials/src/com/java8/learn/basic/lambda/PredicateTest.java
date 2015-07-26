@@ -1,14 +1,14 @@
 package com.java8.learn.basic.lambda;
 
 /**
- * Test {@link SingleArguPredicate} and explore the things with it which we can
+ * Test {@link Predicate} and explore the things with it which we can
  * do in a better way with java 8.
  * 
  * @author Vishal.Zanzrukia
- * @see {@link SingleArguPredicate}
+ * @see {@link Predicate}
  *
  */
-public class SingleArguPredicateTest {
+public class PredicateTest {
 
 	/**
 	 * Test prediction example before java 8
@@ -24,25 +24,25 @@ public class SingleArguPredicateTest {
 		 * internally uses anonymous inner classes and it must be final.<BR>
 		 * Reference link : http://stackoverflow.com/a/1299889/1326692
 		 */
-		SingleArguPredicate<Integer> isFive = new SingleArguPredicate<Integer>() {
+		Predicate<Integer> isFive = new Predicate<Integer>() {
 
 			@Override
-			public boolean predict(Integer t) {
+			public boolean test(Integer t) {
 				return input == t;
 			}
 		};
-		System.out.println("Is " + input + " five ? : " + isFive.predict(5));
+		System.out.println("Is " + input + " five ? : " + isFive.test(5));
 
-		SingleArguPredicate<Integer> isLessThanFive = new SingleArguPredicate<Integer>() {
+		Predicate<Integer> isLessThanFive = new Predicate<Integer>() {
 
 			@Override
-			public boolean predict(Integer t) {
+			public boolean test(Integer t) {
 				return input < t;
 			}
 		};
-		System.out.println("Is " + input + " less than five ? : " + isLessThanFive.predict(5));
+		System.out.println("Is " + input + " less than five ? : " + isLessThanFive.test(5));
 
-		System.out.println("Is " + input + " greater than five ? : " + !isLessThanFive.predict(5));
+		System.out.println("Is " + input + " greater than five ? : " + !isLessThanFive.test(5));
 	}
 
 	/**
@@ -59,13 +59,13 @@ public class SingleArguPredicateTest {
 		 * internally uses anonymous inner classes and it must be final.<BR>
 		 * Reference link : http://stackoverflow.com/a/1299889/1326692
 		 */
-		SingleArguPredicate<Integer> isFive = x -> input == x;
-		System.out.println("Is " + input + " five ? : " + isFive.predict(5));
+		java.util.function.Predicate<Integer> isFive = x -> input == x;
+		System.out.println("Is " + input + " five ? : " + isFive.test(5));
 
-		SingleArguPredicate<Integer> isLessThanFive = x -> input < x;
-		System.out.println("Is " + input + " less than five ? : " + isLessThanFive.predict(5));
+		java.util.function.Predicate<Integer> isLessThanFive = x -> input < x;
+		System.out.println("Is " + input + " less than five ? : " + isLessThanFive.test(5));
 
-		System.out.println("Is " + input + " greater than five ? : " + !isLessThanFive.predict(5));
+		System.out.println("Is " + input + " greater than five ? : " + !isLessThanFive.test(5));
 	}
 
 	public static void main(String[] args) {
