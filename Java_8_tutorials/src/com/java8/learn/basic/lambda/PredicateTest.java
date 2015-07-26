@@ -1,8 +1,8 @@
 package com.java8.learn.basic.lambda;
 
 /**
- * Test {@link Predicate} and explore the things with it which we can
- * do in a better way with java 8.
+ * Test {@link Predicate} and explore the things with it which we can do in a
+ * better way with java 8.
  * 
  * @author Vishal.Zanzrukia
  * @see {@link Predicate}
@@ -20,8 +20,11 @@ public class PredicateTest {
 		System.out.println(":: before java 8 single argument prediction test ::");
 		// input = 16;
 		/**
-		 * TODO : above line will give you compile time error, because Java 8
-		 * internally uses anonymous inner classes and it must be final.<BR>
+		 * <pre>
+		 * TODO : Please notice that above line (line no : 21) will give you compile time error, because Java 8 internally uses anonymous inner classes and it must be final.
+		 * </pre>
+		 * 
+		 * <BR>
 		 * Reference link : http://stackoverflow.com/a/1299889/1326692
 		 */
 		Predicate<Integer> isFive = new Predicate<Integer>() {
@@ -55,7 +58,6 @@ public class PredicateTest {
 		System.out.println(":: with java 8 single argument prediction test ::");
 		// input = 16;
 		/**
-		 * TODO : above line will give you compile time error, because Java 8
 		 * internally uses anonymous inner classes and it must be final.<BR>
 		 * Reference link : http://stackoverflow.com/a/1299889/1326692
 		 */

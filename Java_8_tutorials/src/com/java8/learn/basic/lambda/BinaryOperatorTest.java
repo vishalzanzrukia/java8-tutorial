@@ -53,7 +53,11 @@ public class BinaryOperatorTest {
 		 * Note that we have declared Integer in below example in
 		 * lambda-expression, but it's not compulsory
 		 */
-		
+		/**
+		 * <pre>
+		 * TODO : Please notice that you can write generic types in lambda expression (Integer here) in below line, but it is optional.
+		 * </pre>
+		 */
 		java.util.function.BinaryOperator<Integer> addition = (Integer x, Integer y) -> x + y;
 		System.out.println(input1 + " + " + input2 + " : " + addition.apply(input1, input2));
 
@@ -61,7 +65,14 @@ public class BinaryOperatorTest {
 		 * Note that we have not declared Long in below example in
 		 * lambda-expression and it would work perfectly..!
 		 */
-		java.util.function.BinaryOperator<Long> subtraction = (x, y) -> x - y;
+		/**
+		 * <pre>
+		 * TODO : Please notice that you can always write return statement in lambda expression but it's optional too.
+		 * </pre>
+		 */
+		java.util.function.BinaryOperator<Long> subtraction = (x, y) -> {
+			return (x - y);
+		};
 		System.out.println(input1 + " - " + input2 + " : " + subtraction.apply(new Long(input1), new Long(input2)));
 	}
 
