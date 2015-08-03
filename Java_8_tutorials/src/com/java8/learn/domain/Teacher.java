@@ -1,5 +1,7 @@
 package com.java8.learn.domain;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,8 +17,16 @@ public class Teacher extends Person {
 		return standardWiseSubjects;
 	}
 
-	public void setStandardWiseSubjects(Map<Standard, Set<Subject>> standardWiseSubjects) {
-		this.standardWiseSubjects = standardWiseSubjects;
+	public void addStandardWiseSubject(Subject subject, Standard standard) {
+		if (this.standardWiseSubjects == null) {
+			this.standardWiseSubjects = new HashMap<>();
+		}
+		if (this.standardWiseSubjects.containsKey(standard)) {
+			this.standardWiseSubjects.get(standard).add(subject);
+		} else {
+			Set<Subject> subjects = new HashSet<>();
+			subjects.add(subject);
+			this.standardWiseSubjects.put(standard, subjects);
+		}
 	}
-
 }

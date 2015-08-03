@@ -9,7 +9,7 @@ lambda expression.
 Exercises
 1) Find a student with highest mark in English. (input : List<Student>)
 2) Find top five students of the 5th standard class (count Percentage on base of all the subjects). (input : List<Student>)
-3) Find top five students of each standard class. (Hint: Map<Standard,List<Student>>) (input : List<Student>)
-4) Get List of student names which starts from "A".(input : List<Student>)
+3) Find top five students of each standard class. (input : List<Student>, Output : Map<Standard,List<Student>>)
+4) Filter the students who's name starts from "A".(input : List<Student>)
 5) Get the List of teachers whoever is taking lectures for Given student. (inputs : List<Teacher>, Student)
-6) Get the 
+6) Find the students who's teachers are 
