@@ -64,8 +64,7 @@ public class Lesson1 {
 		List<String> list = new ArrayList<>(Arrays.asList("alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
 
 		/* YOUR CODE HERE */
-		list = list.stream().filter(s -> s.length() % 2 == 0).collect(Collectors.toList());
-		list.forEach(System.out::println);
+		list.stream().filter(s -> s.length() % 2 == 0).collect(Collectors.toList()).forEach(System.out::println);
 	}
 
 	/**
@@ -77,8 +76,7 @@ public class Lesson1 {
 		List<String> list = new ArrayList<>(Arrays.asList("alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
 
 		/* YOUR CODE HERE */
-		list = list.stream().map(String::toUpperCase).collect(Collectors.toList());
-		list.forEach(System.out::println);
+		list.stream().map(String::toUpperCase).collect(Collectors.toList()).forEach(System.out::println);
 	}
 
 	/**
