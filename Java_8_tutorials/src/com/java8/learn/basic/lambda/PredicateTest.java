@@ -71,9 +71,16 @@ public class PredicateTest {
 	}
 
 	public static void main(String[] args) {
-		testSingleArguPredicateWithJava8(15);
+		/*testSingleArguPredicateWithJava8(15);
 		System.out.println("--------------------");
-		testSingleArguPredicateBeforeJava8(15);
+		testSingleArguPredicateBeforeJava8(15);*/
+		String s = new Integer(10101).toString();
+		char[] chars = s.toCharArray();
+		for(char c: chars){
+			System.out.println("c :: "+c);
+		}
+		
+		
 	}
 
 }
