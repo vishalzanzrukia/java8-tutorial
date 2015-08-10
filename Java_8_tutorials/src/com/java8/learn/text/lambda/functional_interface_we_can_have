@@ -1,0 +1,13 @@
+DoubleBiFunction
+LongBiFunction
+IntBiFunction
+
+notes : 
+
+There are total four categories for functional interfaces in jdk API, Function, Predicate, Consumer, Supplier
+All Functions takes some input and produce some output.
+1) All type of Operators are functions by nature.
+2) Operators means types of input and output types are always same.
+3) All predicates have boolean return type.
+4) All consumers have void return type.
+5) All suppliers have no arguments.

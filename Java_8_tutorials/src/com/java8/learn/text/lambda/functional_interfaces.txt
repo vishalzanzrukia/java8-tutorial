@@ -1,0 +1,341 @@
+Note that every functional interface can have at most one abstract method effectively.
+
+➤ 1. Function : Transformation : Takes some input and produce some output
+
+	➤ 1.1. Function<T,R> : Takes one generic input (T) and produce generic output (R).
+
+		➤ Input Type : T
+		➤ Output Type : R
+		➤ Method Signature : R apply(T t)
+	
+		➤ 1.1.A. UnaryOperator<T> : Takes one generic input (T) and produce same type of output (T).
+		
+			➤ Extends : UnaryOperator<T> extends Function<T,T>
+			➤ Input Type : T
+			➤ Output Type : T
+			➤ Method Signature : T apply(T t)
+			
+			
+			➤ 1.1.A.1. UnaryOperator variants for primitive tyeps : Takes one primitive input and produce same type of primitive output.
+			
+				➤ Input Type : primitive
+				➤ Output Type : primitive
+				➤ Method Signature : <<primitive>> <<methodName>>(<<primitive>> value)
+			
+				➤  1.1.A.1.1. IntUnaryOperator : Takes one int (primitive) input and produce int (primitive) output.
+				
+					➤ Input Type : int (primitive)
+					➤ Output Type : int (primitive)
+					➤ Method Signature : int applyAsInt(int value)
+
+				➤  1.1.A.1.2. LongUnaryOperator : Takes one long (primitive) input and produce long (primitive) output.
+				
+					➤ Input Type : long (primitive)
+					➤ Output Type : long (primitive)
+					➤ Method Signature : long applyAsLong(long value)
+
+				➤  1.1.A.1.3. DoubleUnaryOperator : Takes one double (primitive) input and produce double (primitive) output.
+				
+					➤ Input Type : double (primitive)
+					➤ Output Type : double (primitive)
+					➤ Method Signature : double applyAsDouble(double value)					
+		
+
+		➤ 1.1.1. Primitive Input Functions : Takes one primitive input and produce generic output(R).
+		
+			➤ Input Type : primitive
+			➤ Output Type : R
+			➤ Method Signature : R apply(<<primitive>> value)
+			
+			➤  1.1.1.1. IntFunction<R> :  Takes one int (primitive) input and produce generic output(R).
+			
+				➤ Input Type : int (primitive)
+				➤ Output Type : R
+				➤ Method Signature : R apply(int value)
+			
+			➤  1.1.1.2. LongFunction<R> : Takes one long (primitive) input and produce generic output(R).
+			
+				➤ Input Type : long (primitive)
+				➤ Output Type : R
+				➤ Method Signature : R apply(long value)
+				
+			➤  1.1.1.3. DoubleFunction<R> : Takes one double (primitive) input and produce generic output(R).
+			
+				➤ Input Type : double (primitive)
+				➤ Output Type : R
+				➤ Method Signature : R apply(double value)
+				
+				
+		➤ 1.1.2. Primitive Output Functions : Takes one generic input (T) and produce primitive output.
+		
+			➤ Input Type : T 
+			➤ Output Type : primitive 
+			➤ Method Signature : <<primitive>> <<methodName>>(T value)
+			
+			➤  1.1.2.1. ToIntFunction<T> : Takes one generic input (T) and produce int (primitive) output.
+
+				➤ Input Type : T 
+				➤ Output Type : int (primitive) 
+				➤ Method Signature : int applyAsInt(T value)
+			
+			➤  1.1.2.2. ToLongFunction<T> : Takes one generic input (T) and produce long (primitive) output.
+
+				➤ Input Type : T 
+				➤ Output Type : long (primitive) 
+				➤ Method Signature : long applyAsLong(T value)
+				
+			➤  1.1.2.3. ToDoubleFunction<T> :  Takes one generic input (T) and produce double (primitive) output.
+
+				➤ Input Type : T 
+				➤ Output Type : double (primitive) 
+				➤ Method Signature : double applyAsDouble(T value)
+				
+				
+		➤ 1.1.3. Primitive type conversion functions : Takes one primitive type and produce different type of primitive.
+	
+			➤ Input Types : primitive
+			➤ Output Type : primitive
+			➤ Method Signature : <<primitive>> <<methodName>>(<<primitive>> value)
+		
+			➤ 1.1.3.1. IntToLongFunction : Takes int (primitive) input and produce long (primitive) output.
+			
+				➤ Input Types : int (primitive)
+				➤ Output Type : long (primitive) 
+				➤ Method Signature : long applyAsLong(int value)
+				
+			➤ 1.1.3.2. IntToDoubleFunction : Takes int (primitive) input and produce double (primitive) output.
+			
+				➤ Input Types : int (primitive)
+				➤ Output Type : double (primitive) 
+				➤ Method Signature : double applyAsDouble(int value)
+				
+			➤ 1.1.3.3. DoubleToIntFunction : Takes double (primitive) input and produce int (primitive) output.
+			
+				➤ Input Types : double (primitive)
+				➤ Output Type : int (primitive) 
+				➤ Method Signature : int applyAsInt(double value)
+				
+			➤ 1.1.3.4. DoubleToLongFunction : Takes double (primitive) input and produce long (primitive) output.
+			
+				➤ Input Types : double (primitive)
+				➤ Output Type : long (primitive) 
+				➤ Method Signature : long applyAsLong(double value)
+				
+			➤ 1.1.3.5. LongToIntFunction : Takes long (primitive) input and produce int (primitive) output.
+			
+				➤ Input Types : long (primitive) 
+				➤ Output Type : int (primitive)
+				➤ Method Signature : int applyAsInt(long value)
+				
+			➤ 1.1.3.6. LongToDoubleFunction : Takes long (primitive) input and produce double (primitive) output.
+			
+				➤ Input Types : long (primitive)
+				➤ Output Type : double (primitive) 
+				➤ Method Signature : double applyAsDouble(long value)
+	
+	
+	➤ 1.2. BiFunction<T,U,R> : Takes two generic inputs (T,U) and produce generic output (R).
+
+		➤ Input Types : T,U
+		➤ Output Type : R
+		➤ Method Signature : R apply(T t, U u)
+	
+	
+		➤ 1.2.A. BinaryOperator<T> extends BiFunction<T,T,T> : Takes two same type of generic inputs (T,T) and produce same type of generic output (T).
+		
+			➤ Input Types : T,T
+			➤ Output Type : T
+			➤ Method Signature : T apply(T t1, T t2)
+			
+			➤ 1.2.A.1. BinaryOperator variants for primitive tyeps : Takes two primitive inputs and produce same type of primitive output.
+			
+				➤ Input Type : iprimitive, primitive
+				➤ Output Type : primitive
+				➤ Method Signature : <<primitive>> <<methodName>>(<<primitive>> value)
+			
+				➤  1.2.A.1.1. IntBinaryOperator : Takes two int (primitive) input and produce int (primitive) output.
+				
+					➤ Input Type : int (primitive), int (primitive)
+					➤ Output Type : int (primitive)
+					➤ Method Signature : int applyAsInt(int value)
+
+				➤  1.2.A.1.2. LongBinaryOperator : Takes two long (primitive) input and produce long (primitive) output.
+				
+					➤ Input Type : long (primitive), long (primitive)
+					➤ Output Type : long (primitive)
+					➤ Method Signature : long applyAsLong(long value)
+
+				➤  1.2.A.1.3. DoubleBinaryOperator : Takes two double (primitive) input and produce double (primitive) output.
+				
+					➤ Input Type : double (primitive), double (primitive)
+					➤ Output Type : double (primitive)
+					➤ Method Signature : double applyAsDouble(double value)	
+			
+			
+		➤ 1.2.1. Primitive Output BiFunctions : Takes one generic inputs (T,U) and produce primitive output.
+		
+			➤ Input Types : T, U
+			➤ Output Type : primitive
+			➤ Method Signature : <<primitive>> <<methodName>>(T t, U v)
+		
+			➤  1.2.1.1. ToIntBiFunction<T> : Takes two generic input (T,U) and produce int (primitive) output.
+
+				➤ Input Types : T, U
+				➤ Output Type : int (primitive) 
+				➤ Method Signature : int applyAsInt(T t, U v)
+			
+			➤  1.2.1.2. ToLongBiFunction<T> : Takes one generic input (T) and produce long (primitive) output.
+
+				➤ Input Types : T, U
+				➤ Output Type : long (primitive) 
+				➤ Method Signature : long applyAsLong(T t, U v)
+				
+			➤  1.2.1.3. ToDoubleBiFunction<T> :  Takes one generic input (T) and produce double (primitive) output.
+
+				➤ Input Types : T, U
+				➤ Output Type : double (primitive) 
+				➤ Method Signature : double applyAsDouble(T t, U v)
+				
+				
+➤ 2. Predicate : Test something and produce boolean (true or false) output
+
+	➤ 2.1. Predicate<T> : Takes one generic input (T) and produce boolean output.
+
+		➤ Input Type : T
+		➤ Output Type : boolean
+		➤ Method Signature : boolean test(T t)
+		
+		➤ 2.1.1. Primitive Input Predicates : Takes one primitive input and produce boolean output.
+		
+			➤ Input Type : primitive
+			➤ Output Type : boolean
+			➤ Method Signature : boolean test(<<primitive>> value)
+			
+			➤  2.1.1.1. IntPredicate :  Takes one int (primitive) input and produce boolean output.
+			
+				➤ Input Type : int (primitive)
+				➤ Output Type : boolean
+				➤ Method Signature : boolean test(int value)
+			
+			➤  2.1.1.2. LongPredicate : Takes one long (primitive) input and produce boolean output.
+			
+				➤ Input Type : long (primitive)
+				➤ Output Type : boolean
+				➤ Method Signature : boolean test(long value)
+				
+			➤  2.1.1.3. DoublePredicate : Takes one double (primitive) input and produce boolean output.
+			
+				➤ Input Type : double (primitive)
+				➤ Output Type : boolean
+				➤ Method Signature : boolean test(double value)
+		
+		
+	➤ 2.2. BiPredicate<T,U> : Takes two generic inputs (T,U) and produce boolean output.
+
+		➤ Input Types : T, U
+		➤ Output Type : boolean
+		➤ Method Signature : boolean test(T t, U u)
+		
+		
+➤ 3. Consumer : Takes some input without returning anything (void).
+
+	➤ 3.1. Consumer<T> : Takes one generic input (T) and return nothing(void).
+
+		➤ Input Type : T
+		➤ Output Type : void
+		➤ Method Signature : void accept(T t)
+		
+		➤ 3.1.1. Primitive Input Consumer : Takes one primitive input and return nothing(void).
+		
+			➤ Input Type : primitive
+			➤ Output Type : void
+			➤ Method Signature : void accept(<<primitive>> value)
+			
+			➤  3.1.1.1. IntConsumer :  Takes one int (primitive) input and return nothing(void).
+			
+				➤ Input Type : int (primitive)
+				➤ Output Type : void
+				➤ Method Signature : void accept(int value)
+			
+			➤  3.1.1.2. LongConsumer : Takes one long (primitive) input and return nothing(void).
+			
+				➤ Input Type : long (primitive)
+				➤ Output Type : void
+				➤ Method Signature : void accept(long value)
+				
+			➤  3.1.1.3. DoubleConsumer : Takes one double (primitive) input and return nothing(void).
+			
+				➤ Input Type : double (primitive)
+				➤ Output Type : void
+				➤ Method Signature : void accept(double value)
+				
+				
+	➤ 3.2. BiConsumer<T,U> : Takes two generic inputs (T, U) and return nothing(void).
+
+		➤ Input Types : T, U
+		➤ Output Type : void
+		➤ Method Signature : void accept(T t, U u)
+		
+		
+	➤ 3.3. Generic with primitive Consumer : Takes one generic (T) and second primitive as inputs and return nothing(void).
+
+		➤ Input Types : T, primitive
+		➤ Output Type : void
+		➤ Method Signature : void accept(T t, <<primitive>> value)
+		
+		➤ 3.3.1. ObjIntConsumer<T> : Takes one generic (T) and second int (primitive) as inputs and return nothing(void).
+		
+			➤ Input Types : T, int
+			➤ Output Type : void
+			➤ Method Signature : void accept(T t, int value)
+			
+		➤ 3.3.2. ObjLongConsumer<T> : Takes one generic (T) and second long (primitive) as inputs and return nothing(void).
+		
+			➤ Input Types : T, long
+			➤ Output Type : void
+			➤ Method Signature : void accept(T t, long value)
+			
+		➤ 3.3.3. ObjDoubleConsumer<T> : Takes one generic (T) and second double (primitive) as inputs and return nothing(void).
+		
+			➤ Input Types : T, double
+			➤ Output Type : void
+			➤ Method Signature : void accept(T t, double value)
+			
+			
+➤ 4. Supplier :  Takes nothing as input and produce the output value.
+
+	➤ 4.1. Supplier<T> : Takes nothing as input and produce generic output value (T).
+
+		➤ Input Type : nothing
+		➤ Output Type : T
+		➤ Method Signature : T get()
+
+	➤ 4.2. Primitive Supplier : Takes nothing as input and produce primitive output value.
+
+		➤ Input Type : nothing
+		➤ Output Type : primitive
+		➤ Method Signature : <<primitive>> <<methodName>>()
+		
+		➤ 4.2.1. IntSupplier : Takes nothing as input and produce int (primitive) output value.
+
+			➤ Input Type : nothing
+			➤ Output Type : int
+			➤ Method Signature : int getAsInt()
+			
+		➤ 4.2.2. LongSupplier : Takes nothing as input and produce long (primitive) output value.
+
+			➤ Input Type : nothing
+			➤ Output Type : long
+			➤ Method Signature : long getAsLong()
+			
+		➤ 4.2.3. DoubleSupplier : Takes nothing as input and produce double (primitive) output value.
+
+			➤ Input Type : nothing
+			➤ Output Type : double
+			➤ Method Signature : double getAsDouble()
+			
+		➤ 4.2.4. BooleanSupplier : Takes nothing as input and produce boolean (primitive) output value.
+
+			➤ Input Type : nothing
+			➤ Output Type : boolean
+			➤ Method Signature : boolean getAsBoolean()

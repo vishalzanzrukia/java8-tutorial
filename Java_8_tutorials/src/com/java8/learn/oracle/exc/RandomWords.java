@@ -7,8 +7,6 @@ package com.java8.learn.oracle.exc;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collections;
@@ -31,7 +29,7 @@ public class RandomWords {
 	 *             If the source words file cannot be read
 	 */
 	public RandomWords() throws IOException {
-		try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:\\me\\learning\\java-8\\Homework3\\words"))) {
+		try (BufferedReader reader = Files.newBufferedReader(Paths.get("./resources/words"))) {
 			// sourceWords = null; // YOUR CODE HERE
 			sourceWords = reader.lines().collect(Collectors.toList());
 			System.out.println("Loaded " + sourceWords.size() + " words");

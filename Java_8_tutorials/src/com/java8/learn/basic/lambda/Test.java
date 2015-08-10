@@ -15,7 +15,6 @@ class MySupplier implements Supplier<SimpleDateFormat>{
 }
 public class Test {
 	public static void main(String[] args) {
-
 		JButton button = new JButton();
 		button.addActionListener(event ->
 		System.out.println(event.getActionCommand()));
