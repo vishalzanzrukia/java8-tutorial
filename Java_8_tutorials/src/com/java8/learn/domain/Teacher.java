@@ -1,6 +1,6 @@
 package com.java8.learn.domain;
 
-import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -19,7 +19,7 @@ public class Teacher extends Person {
 		return standardWiseSubjects;
 	}
 
-	public void addStandardWiseSubject(Subject subject, Standard standard) {
+	public void add(Subject subject, Standard standard) {
 		if (this.standardWiseSubjects == null) {
 			this.standardWiseSubjects = new HashMap<>();
 		}
@@ -30,35 +30,23 @@ public class Teacher extends Person {
 			subjects.add(subject);
 			this.standardWiseSubjects.put(standard, subjects);
 		}
+		
+		this.standardWiseSubjects.computeIfPresent(standard, (key, oldValue)-> {oldValue.add(subject);return oldValue;});
 	}
 
-	// I need some inputs over here.
 	public Map<Subject, Set<Standard>> getSubjectWiseStandards() {
 
 		if (this.standardWiseSubjects == null) {
 			return null;
 		}
-
-		Map<Subject, Set<Standard>> output = new HashMap<>();
-
-		this.standardWiseSubjects.values().parallelStream().flatMap(set -> set.stream()).forEach(subject -> {
-			Set<Standard> standards = new HashSet<>();
-			this.standardWiseSubjects.forEach((standard, subjects) -> {
-				// TODO can I convert this if condition into predicate?
-				if (subjects.contains(subject)) {
-					standards.add(standard);
-				}
-			});
-			output.put(subject, standards);
-		});
-
-		// return output;
-
-		this.standardWiseSubjects.values().parallelStream().flatMap(set -> set.stream());
+		return this.standardWiseSubjects.entrySet()
+			.parallelStream().flatMap(e -> e.getValue()
+				.stream()
+				.map(st -> new SimpleEntry<>(st, e.getKey())))
+			.collect(Collectors.groupingBy(SimpleEntry::getKey, Collectors.mapping(SimpleEntry::getValue, Collectors.toSet())));
+	}
+	
+	public static void main(String[] args) {
 		
-		return this.standardWiseSubjects.entrySet().parallelStream().<Map.Entry<Subject, Standard>> flatMap(
-						e -> e.getValue().stream().map(st -> new AbstractMap.SimpleEntry<>(st, e.getKey())))
-				.collect(Collectors.groupingBy(e -> e.getKey(),
-						Collectors.mapping(e -> e.getValue(), Collectors.toSet())));
 	}
 }

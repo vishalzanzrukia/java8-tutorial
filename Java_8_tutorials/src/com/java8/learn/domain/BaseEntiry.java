@@ -7,6 +7,14 @@ package com.java8.learn.domain;
 public abstract class BaseEntiry {
 
 	private Integer id;
+	
+	public BaseEntiry(){
+		
+	}
+	
+	public BaseEntiry(Integer id){
+		this.id = id;
+	}
 
 	public Integer getId() {
 		return id;
